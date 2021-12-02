@@ -61,8 +61,8 @@ var draw = (function() {
   
     //Write the x,y coods to the target div
     writeXY: function() {
-      document.getElementById('trackX').innerHTML = 'X: ' + x;
-      document.getElementById('trackY').innerHTML = 'Y: ' + y;
+      $("trackX").innerHTML = 'X: ' + x;
+      $("trackY").innerHTML = 'Y: ' + y;
     },
 
     setStart: function() {
@@ -276,7 +276,8 @@ var draw = (function() {
     init: function() {
       canvas.width = mWidth;
       canvas.height = mHeight;
-      document.querySelector('main').appendChild(canvas);
+      // document.querySelector('main').appendChild(canvas);
+      $('main').appendChild(canvas);
 
     }
   };
@@ -286,27 +287,27 @@ var draw = (function() {
 //Initialize draw
 draw.init();
 
-  document.getElementById('btnRect').addEventListener('click',function(){
+  $('btnRect').addEventListener('click',function(){
   draw.setShape('rectangle');
   }, false);
 
-  document.getElementById('btnLine').addEventListener('click',function(){
+  $('btnLine').addEventListener('click',function(){
       draw.setShape('line');
   }, false);
 
-  document.getElementById('btnCircle').addEventListener('click',function(){
+  $('btnCircle').addEventListener('click',function(){
       draw.setShape('circle');
   }, false);
 
-  document.getElementById('btnPath').addEventListener('click',function(){
+  $('btnPath').addEventListener('click',function(){
       draw.setShape('path');
   }, false);
 
-  document.getElementById('btnTriangle').addEventListener('click',function(){
+  $('btnTriangle').addEventListener('click',function(){
       draw.setShape('triangle');
   }, false);
 
-  document.getElementById('btn3Point').addEventListener('click', function(){
+  $('btn3Point').addEventListener('click', function(){
       draw.setShape('3-point');
     });
     
@@ -343,19 +344,19 @@ draw.getCanvas().addEventListener('mouseup', function() {
   }  
 }, false);
 
-document.getElementById('strokeColor').addEventListener('change', function(){
+$('strokeColor').addEventListener('change', function(){
   draw.setStrokeColor(document.getElementById('strokeColor').value);
 });
 
-document.getElementById('randStrokeColor').addEventListener('change', function(){
+$('randStrokeColor').addEventListener('change', function(){
 draw.setStrokeColor('');
 });
 
-document.getElementById('fillColor').addEventListener('change', function(){
+$('fillColor').addEventListener('change', function(){
 draw.setFillColor(document.getElementById('fillColor').value);
 });
   
-document.getElementById('randFillColor').addEventListener('change', function(){
+$('randFillColor').addEventListener('change', function(){
 draw.setFillColor('');
 });
     

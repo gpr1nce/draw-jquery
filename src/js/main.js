@@ -1,9 +1,31 @@
+//   $("button").click(function(){
+//     alert("Background color = " + $("p").css("background-color"));
+//   });
+// });
+
 var draw = (function() {
 
   //Get the height and width of the main we will use this set canvas to the full
   //size of the main element.
   var mWidth = document.querySelector('main').offsetWidth,
-    mHeight = document.querySelector('main').offsetHeight,
+    mHeight = document.querySelector('main').offsetHeight
+
+    // $(document).ready(function(){
+
+// trying web stuff; ready document
+$(document).ready(function(){
+  jmWidth = $('main').offsetWidth,
+    jmHeight = $('main').offsetHeight},
+
+    console.log('jmw = ' + jmWidth),
+    console.log('jmh = ' + jmHeight),
+
+    // mimic this
+        //Write the x,y coods to the target div
+        // writeXY: function() {
+        //   $("trackX").innerHTML = 'X: ' + x;
+        //   $("trackY").innerHTML = 'Y: ' + y;
+        // },
 
     //Create the canvas
     canvas = document.createElement("canvas"),
@@ -16,7 +38,7 @@ var draw = (function() {
 
     //current x,y position
     x=0,
-    y=0;
+    y=0,
 
   //starting x,y
   x1=0,
@@ -24,27 +46,27 @@ var draw = (function() {
 
   //ending x,y
   x2=0,
-  y2=0;
+  y2=0,
 
   //Tracks the last x,y state
   lx = false,
   ly = false,
 
   //What shape are we drawing?
-  shape='';
+  shape='',
 
   //Do we want to draw?
-  isDrawing=false;
+  isDrawing=false,
 
   //stroke color
-  var stroke='';
+  stroke='',
 
   //fill color
-  var fill='';
+  fill='',
 
   //Draw 3-point Triangle
-  var points = [];
-  var i = 0;
+  points = [],
+  i = 0,
 
   return {
       //Set the x,y coords based on current event data
@@ -61,8 +83,8 @@ var draw = (function() {
   
     //Write the x,y coods to the target div
     writeXY: function() {
-      document.getElementById('trackX').innerHTML = 'X: ' + x;
-      document.getElementById('trackY').innerHTML = 'Y: ' + y;
+      $("trackX").innerHTML = 'X: ' + x;
+      $("trackY").innerHTML = 'Y: ' + y;
     },
 
     setStart: function() {
@@ -276,7 +298,8 @@ var draw = (function() {
     init: function() {
       canvas.width = mWidth;
       canvas.height = mHeight;
-      document.querySelector('main').appendChild(canvas);
+      // document.querySelector('main').appendChild(canvas);
+      $('main').appendChild(canvas);
 
     }
   };
@@ -286,27 +309,27 @@ var draw = (function() {
 //Initialize draw
 draw.init();
 
-  document.getElementById('btnRect').addEventListener('click',function(){
+  $('btnRect').addEventListener('click',function(){
   draw.setShape('rectangle');
   }, false);
 
-  document.getElementById('btnLine').addEventListener('click',function(){
+  $('btnLine').addEventListener('click',function(){
       draw.setShape('line');
   }, false);
 
-  document.getElementById('btnCircle').addEventListener('click',function(){
+  $('btnCircle').addEventListener('click',function(){
       draw.setShape('circle');
   }, false);
 
-  document.getElementById('btnPath').addEventListener('click',function(){
+  $('btnPath').addEventListener('click',function(){
       draw.setShape('path');
   }, false);
 
-  document.getElementById('btnTriangle').addEventListener('click',function(){
+  $('btnTriangle').addEventListener('click',function(){
       draw.setShape('triangle');
   }, false);
 
-  document.getElementById('btn3Point').addEventListener('click', function(){
+  $('btn3Point').addEventListener('click', function(){
       draw.setShape('3-point');
     });
     
@@ -343,19 +366,19 @@ draw.getCanvas().addEventListener('mouseup', function() {
   }  
 }, false);
 
-document.getElementById('strokeColor').addEventListener('change', function(){
+$('strokeColor').addEventListener('change', function(){
   draw.setStrokeColor(document.getElementById('strokeColor').value);
 });
 
-document.getElementById('randStrokeColor').addEventListener('change', function(){
+$('randStrokeColor').addEventListener('change', function(){
 draw.setStrokeColor('');
 });
 
-document.getElementById('fillColor').addEventListener('change', function(){
+$('fillColor').addEventListener('change', function(){
 draw.setFillColor(document.getElementById('fillColor').value);
 });
   
-document.getElementById('randFillColor').addEventListener('change', function(){
+$('randFillColor').addEventListener('change', function(){
 draw.setFillColor('');
 });
     
